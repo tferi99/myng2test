@@ -1,3 +1,52 @@
 <h1>
   {{title}}
 </h1>
+
+<fieldset>
+  <legend>Interpolation</legend>
+  Value: {{value1}}
+</fieldset>
+
+<fieldset>
+  <legend>Collection</legend>
+  <ul>
+    <li *ngFor="let hero of heroes">
+      {{ hero }}
+    </li>
+  </ul>
+
+  <hr>
+  Filtered:
+  <ul>
+    <li *ngFor="let hero of heroes">
+      <span *ngIf="hero.length > 7">{{ hero }}</span>
+    </li>
+  </ul>
+
+</fieldset>
+
+<fieldset>
+  <legend>Input</legend>
+
+  <table>
+    <tr>
+      <td>Mouse click</td>
+      <td><button (click)="onClickme()">Increment</button></td>
+      <td>{{num1}}</td>
+    </tr>
+
+    <tr>
+      <td>Keyboard keyup</td>
+      <td><input (keyup)="onKeyUp($event)"></td>
+      <td>{{keyInputValue}}</td>
+    </tr>
+
+    <tr>
+      <td>Keyboard keyup into template reference variable</td>
+      <td><input #inp (keyup)="0"></td>
+      <td>{{inp.value}}</td>
+    </tr>
+
+  </table>
+
+</fieldset>
